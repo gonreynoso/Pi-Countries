@@ -1,19 +1,14 @@
 //! ESTE ES EL ENRUTADOR PRINCIPAL
 
 const { Router } = require('express');
-const mainRouter = Router();
-
-// Importar todos los routers;
-const countriesRouter = require("./countriesRouter")
-const postActivityRouter = require("./postActivityRouter")
+const router = Router();
+const countriesRouter = require("./countriesRouter") 
+const activityRouter = require("./activitiesRouter") 
 
 
 // Configurar los routers
-mainRouter.use("/countries", countriesRouter )
-mainRouter.use("/post", postActivityRouter )
+router.use("/countries", countriesRouter)
+router.use("/activities", activityRouter)
 
 
-
-
-module.exports = mainRouter;
-
+module.exports = router;
