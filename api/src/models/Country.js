@@ -3,48 +3,46 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('country', 
-  {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+  sequelize.define('country',
+    {
+      id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      flag: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      continent: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      capital: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      subregion: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      area: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
+      population: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      created:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+      },
     },
-    
-    id: {
-      type: DataTypes.STRING(3),
-      primaryKey: true,
-      allowNull: false,
-    },
-    
-    flag_image: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    continent: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true,
-    },
-    capital: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true,
-    },
-    subregion: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    area: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    population: {
-      type: DataTypes.INTEGER,
-    },
-    created: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
-    }
-  },
-  //atributos
-  { timestamps: false , });
+    //atributos
+    { timestamps: false, });
 };

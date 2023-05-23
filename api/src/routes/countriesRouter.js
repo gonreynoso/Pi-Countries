@@ -2,13 +2,16 @@ const { Router } = require('express');
 //traemos los getHandlers de countries handlers
 const {
   countryHandler,
-  countryIdHandler } = require("../handlers/countriesHandlers")
+  countryIdHandler } = require("../handlers/countriesHandlers");
+
 //enrutador
 const countriesRouter = Router()
 
 // #### **📍 GET | /countries**
 // -  Obtiene un arreglo de objetos, donde cada objeto es un país con toda su información.
-// #### **📍 GET | /countries/name?="..."**
+countriesRouter.get("/", countryHandler)
+
+// #### **📍 GET | /countries/name?="..."
 // -  Esta ruta debe obtener todos aquellos países que coinciden con el nombre recibido por query. (No es necesario que sea una coincidencia exacta).
 // -  Debe poder buscarlo independientemente de mayúsculas o minúsculas.
 // -  Si no existe el país, debe mostrar un mensaje adecuado.

@@ -40,45 +40,63 @@ const getCountriesByName = async (name) => {
 };
 
 
-//? Peticion a la API para guardar los datos en la DB
-const getCountriesAPI = async () => {
-    const apiResponse = await axios.get("https://restcountries.com/v3/all");
-    const countries = apiResponse.data.map((country) => ({
-        id: country.cca3,
-        name: country.name.common,
-        flag: country.flags[1],
-        continent: country.continents[0],
-        capital: Array.isArray(country.capital)
-            ? country.capital.join(", ")
-            : country.capital,
-        subregion: country.subregion,
-        area: country.area,
-        population: country.population,
-    }));
-    const savedCountries = await Country.bulkCreate(countries);
-    return savedCountries;
-};
-//? Funcion para limpiar la API
-const cleanArray = (arr) =>
-    arr.map((elemen) => {
-        return {
-            id: elemen.cca3,
-            name: elemen.name.common,
-            flag_image: elemen.flags[0],
-            continent: elemen.continents[0],
-            capital: elemen.capital ? elemen.capital[0] : "No tiene capital",
-            subregion: elemen.subregion,
-            area: elemen.area,
-            population: elemen.population,
-            created: false
-        }
-    })
+
+//? Peticion a la API para guardar los datos en la DB, se hace una sola vez y luego se deja comentada
+// const getAllCountries = async () => {
+
+//     const respuestaApi = await axios.get("https://rest-countries.up.railway.app/v3/all");//?nuevo link
+//     const countries = respuestaApi.data.map((country) => ({
+//         id: country.cca3,
+//         name: country.name.common,
+//         flag: country.flags[1],
+//         continent: country.continents[0],
+//         capital: Array.isArray(country.capital)
+//             ? country.capital.join(", ")
+//             : country.capital,
+//         subregion: country.subregion,
+//         area: country.area,
+//         population: country.population,
+//         created: true,
+//     }))
+
+//     //?Aca se guardan los datos
+//     const savedCountries = await Country.bulkCreate(countries);
+//     return savedCountries;
+// }
 
 
 module.exports = {
     getAllCountries,
     getCountriesById,
     getCountriesByName,
-    getCountriesAPI,
 }
 
+
+
+
+//? Funcion para limpiar la API no usada con DB
+// const cleanArray = (arr) =>
+//     arr.map((country) => {
+//         return {
+//             id: country.cca3,
+//             name: country.name.common,
+//             flag: country.flags[1],
+//             continent: country.continents[0],
+//             capital: Array.isArray(country.capital)
+//                 ? country.capital.join(", ")
+//                 : country.capital,
+//             subregion: country.subregion,
+//             area: country.area,
+//             population: country.population,
+
+// id: elemen.cca3,
+// name: elemen.name.common,
+// flag_image: elemen.flags[0],
+// continent: elemen.continents[0],
+// capital: elemen.capital ? elemen.capital[0] : "No tiene capital",
+// subregion: elemen.subregion,
+// area: elemen.area,
+// population: elemen.population,
+// created: false
+//     }
+// })
