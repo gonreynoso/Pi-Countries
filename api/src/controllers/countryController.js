@@ -1,5 +1,5 @@
 const { Country, Activity } = require("../db")
-const axios = require("axios");
+const axios = require("axios");//?solo usado para el pedido a la API
 const { Op } = require("sequelize");
 
 
@@ -56,7 +56,7 @@ const getCountriesByName = async (name) => {
 //         subregion: country.subregion,
 //         area: country.area,
 //         population: country.population,
-//         created: true,
+//         created: false,
 //     }))
 
 //     //?Aca se guardan los datos
@@ -70,33 +70,3 @@ module.exports = {
     getCountriesById,
     getCountriesByName,
 }
-
-
-
-
-//? Funcion para limpiar la API no usada con DB
-// const cleanArray = (arr) =>
-//     arr.map((country) => {
-//         return {
-//             id: country.cca3,
-//             name: country.name.common,
-//             flag: country.flags[1],
-//             continent: country.continents[0],
-//             capital: Array.isArray(country.capital)
-//                 ? country.capital.join(", ")
-//                 : country.capital,
-//             subregion: country.subregion,
-//             area: country.area,
-//             population: country.population,
-
-// id: elemen.cca3,
-// name: elemen.name.common,
-// flag_image: elemen.flags[0],
-// continent: elemen.continents[0],
-// capital: elemen.capital ? elemen.capital[0] : "No tiene capital",
-// subregion: elemen.subregion,
-// area: elemen.area,
-// population: elemen.population,
-// created: false
-//     }
-// })

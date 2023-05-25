@@ -1,18 +1,13 @@
 const { Activity, Country } = require("../db");
 const { Op } = require("sequelize");
 
-const postActivity = async ({
-  name,
-  difficulty,
-  duration,
-  season,
-  country,
-}) => {
+const postActivity = async ({ name, difficulty, duration, season, country, }) => {
   const newActivity = await Activity.create({
     name,
     difficulty,
     duration,
     season,
+    country,
   });
   for (const countryId of country) {
     let countryObj = await Country.findByPk(countryId);
@@ -20,7 +15,6 @@ const postActivity = async ({
       newActivity.addCountry(countryObj);
     }
   }
-
   return newActivity;
 };
 
@@ -37,4 +31,18 @@ const getActivityByName = async (name) => {
   });
 };
 
-module.exports = { getActivities, postActivity, getActivityByName };
+const activityDeleteAll = () => {
+  Activity.destroy({ where: {} });
+};
+
+const activityDeleteById = (id) => {
+  Activity.destroy({ where: { id } });
+};
+
+module.exports = {
+  getActivities,
+  postActivity,
+  getActivityByName,
+  activityDeleteAll,
+  activityDeleteById,
+};
