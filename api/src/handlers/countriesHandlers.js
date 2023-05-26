@@ -4,6 +4,8 @@ const {
     getCountriesById,
   } = require("../controllers/countryController");
   
+
+  //? HandlerCountry by Name y getAll
   const countryHandler = async (req, res) => {
     const { name } = req.query;
     try {
@@ -26,6 +28,8 @@ const {
     }
   };
   
+
+  //? HandlerCountry by ID
   const countryIdHandler = async (req, res) => {
     const { id } = req.params;
     try {

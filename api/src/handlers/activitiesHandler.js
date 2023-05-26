@@ -6,6 +6,8 @@ const {
   activityDeleteById,
 } = require("../controllers/activityController.js");
 
+
+//? Handler para POST activity
 const activityPostHandler = async (req, res) => {
   const { name, difficulty, duration, season, country } = req.body;
 
@@ -26,6 +28,7 @@ const activityPostHandler = async (req, res) => {
   }
 };
 
+//? Handler para getActivityName o getActivities
 const activityHandler = async (req, res) => {
   const { name } = req.query;
 
@@ -45,6 +48,8 @@ const activityHandler = async (req, res) => {
   }
 };
 
+
+//? Handler DELETE para ActivityDeleteAll o ID
 // const activityDeleteHandler = (req, res) => {
 //   const { id } = req.params;
 //   try {
