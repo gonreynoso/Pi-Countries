@@ -50,24 +50,24 @@ const activityHandler = async (req, res) => {
 
 
 //? Handler DELETE para ActivityDeleteAll o ID
-// const activityDeleteHandler = (req, res) => {
-//   const { id } = req.params;
-//   try {
-//     if (id === "all") {
-//       activityDeleteAll();
-//       res.status(200).send("All activities erased");
-//     }else{
-//       activityDeleteById(id);
-//       res.status(200).send(`Activity ID:${id} deleted successfully`);
-//     }
-//   } catch (error) {
-//     console.error("Not possible to delete activities");
-//     res.status(400).json({ error: "Failed to delete activities" });
-//   }
-// };
+const activityDeleteHandler = (req, res) => {
+  const { id } = req.params;
+  try {
+    if (id === "all") {
+      activityDeleteAll();
+      res.status(200).send("All activities erased");
+    }else{
+      activityDeleteById(id);
+      res.status(200).send(`Activity ID:${id} deleted successfully`);
+    }
+  } catch (error) {
+    console.error("Not possible to delete activities");
+    res.status(400).json({ error: "Failed to delete activities" });
+  }
+};
 
 module.exports = { 
   activityHandler,
   activityPostHandler, 
-  // activityDeleteHandler 
+  activityDeleteHandler 
 };

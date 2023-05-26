@@ -31,6 +31,8 @@ const getActivityByName = async (name) => {
   });
 };
 
+
+//?Controller para borrar actividades
 const activityDeleteAll = () => {
   Activity.destroy({ where: {} });
 };

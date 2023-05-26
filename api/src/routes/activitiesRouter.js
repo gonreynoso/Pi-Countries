@@ -21,7 +21,7 @@ activityRouter.get("/", activityHandler);
 // - Borra las actividades todas juntas.
 //?📍  DELETE ID| /activities/:id**
 // - Borra las actividades con ID de a una
-//* activityRouter.delete("/:id", activityDeleteHandler);
+activityRouter.delete("/:id", activityDeleteHandler);
 
 
 module.exports = activityRouter;
