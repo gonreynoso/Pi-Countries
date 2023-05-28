@@ -58,6 +58,7 @@ const getCountriesById = async (id) => {
 //?Obtiene el pais por nombre
 const getCountriesByName = async (name) => {
     return await Country.findAll({
+        //? ILIKE '%hat' (case insensitive)
         where: { name: { [Op.iLike]: `%${name}%` } },
     });
 };

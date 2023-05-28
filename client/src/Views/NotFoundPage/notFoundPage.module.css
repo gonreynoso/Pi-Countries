@@ -1,0 +1,37 @@
+.container {
+ background-image: url("https://giphy.com/gifs/404-14uQ3cOFteDaU");
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ height: 100vh;
+}
+
+.title {
+ font-size: 36px;
+ color: #333;
+ margin-bottom: 20px;
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.message {
+ font-size: 24px;
+ color: #777;
+ text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.gif{
+ width: 400px;
+ height: 300px;
+ margin-bottom: 20px;
+}
+
+.link {
+ color: #321eb3;
+ text-decoration: none;
+ transition: color 0.3s ease-in-out;
+}
+
+.link:hover {
+ color: #888;
+}
