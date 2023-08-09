@@ -6,7 +6,7 @@ const countriesRouter = require("./countriesRouter")
 const activityRouter = require("./activitiesRouter") 
 
 
-// Configurar los routers
+// Configurar los routers individuales
 router.use("/countries", countriesRouter)
 router.use("/activities", activityRouter)
 
